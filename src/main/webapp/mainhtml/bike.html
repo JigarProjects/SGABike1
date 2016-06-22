@@ -1,11 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bike</title>
-</head>
-<body>
-    Here bike will be seen.
-    All the current bikes will be shown by default as you will have only few number of them.
-</body>
-</html>
+Here bike will be seen.
+All the current bikes will be shown by default as you will have only few number of them.
+Bike can be created, deleted if no entry is associted, searched, updated. Create, Update, Delete,
+Listing the items
+
+
+<div id="listBike" class="panel panel-default" ng-app="bike">
+    <div class="panel-heading">Bike Management</div>
+    <!--<div class = "panel-body">
+        This is a Basic panel
+    </div>-->
+    <div ng-controller="bikeCtrl as bikeControl">
+        <div>
+            <table class = "table">
+                <tr>
+                    <th>Product</th>
+                    <th>Price </th>
+                    <th>Price </th>
+                </tr>
+                <tr ng-repeat="oneBike in bikeControl.products">
+                    <td>{{oneBike.id}}</td>
+                    <td>{{oneBike.name}}</td>
+                    <td>{{oneBike.description}}</td>
+                <tr>
+            </table>
+        </div>
+    </div>
+</div>

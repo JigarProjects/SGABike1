@@ -15,7 +15,7 @@
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-
+    <script type="text/javascript" src="controller/bike.js"></script>
 </head>
 <body ng-app="bike">
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -44,7 +44,7 @@
                 </ul>
             </div>
         </div>
-        <div ng-view>
+        <div id="dynamic_data" ng-view>
             <!--<h1 class="page-header">Here bike association will be done in one div.</h1>
             Other div will have all the current information about bike holders.
             Bike holder - Remaining day to return - Contact Information - Notified or not-->

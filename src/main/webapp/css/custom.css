@@ -44,3 +44,7 @@ body{
         border-right: 1px solid #eee;
     }
 }
+
+#dynamic_data{
+    padding-left: 290px;
+}
