@@ -1,17 +1,16 @@
-<div class="container">
+test
+<div class="container" ng-controller="bikeCreateCtrl as bCtrl">
     <h2>Vertical (basic) form</h2>
-    <form role="form">
+    <form role="form" ng-submit="bCtrl.submit()">
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email">
+            <label for="bike">Bike:</label>
+            <input type="text" class="form-control" id="bike" placeholder="Enter bike" ng-model="bCtrl.bike.name">
         </div>
         <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+            <label for="info">Information:</label>
+            <input type="text" class="form-control" id="info" placeholder="Enter information" ng-model="bCtrl.bike.description">
         </div>
-        <div class="checkbox">
-            <label><input type="checkbox"> Remember me</label>
-        </div>
+
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>

@@ -13,6 +13,9 @@ app.config(
             .when('/user',{
                 templateUrl : 'mainhtml/users.html'
             })
+            .when('/create',{
+                templateUrl : 'mainhtml/CreateBike.html'
+            })
             .otherwise( {
                 redirectTo:'/index.html'
             });

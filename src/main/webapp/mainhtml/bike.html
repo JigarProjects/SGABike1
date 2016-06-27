@@ -18,11 +18,16 @@ Listing the items
                     <th>Price </th>
                 </tr>
                 <tr ng-repeat="oneBike in bikeControl.products">
+                    <td><input type="checkbox" checklist-model="user.roles" checklist-value="role">{{}}</td>
                     <td>{{oneBike.id}}</td>
                     <td>{{oneBike.name}}</td>
                     <td>{{oneBike.description}}</td>
                 <tr>
             </table>
         </div>
+    </div>
+    <div>
+        <button onclick="#createbike">Create</button>
+        <button >Delete</button>
     </div>
 </div>
