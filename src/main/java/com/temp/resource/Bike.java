@@ -1,5 +1,6 @@
 package com.temp.resource;
 
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -7,13 +8,20 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlRootElement
+@Entity
+@Table(name = "BIKE")
 public class Bike {
     //proper uuid support
+    @Id
+    @Column(name="ID")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     int id;
+    @Column(name="NAME")
     String name;
+    @Column(name="DESCRIPTION")
     String description;
 
-    public Bike(){
+    public Bike() {
         super();
     }
 

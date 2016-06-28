@@ -23,7 +23,6 @@ public class BikeResource {
     }
 
 
-
     @GET
     @Path("/{bikeId}")
     public Bike getBike(@PathParam("bikeId") int bikeId) {
@@ -31,24 +30,23 @@ public class BikeResource {
     }
 
 
-
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Bike createBike(Bike newBike){
+    public Bike createBike(Bike newBike) {
         return bs.addBike(newBike);
     }
 
     @DELETE
     @Path("/{bikeId}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void deleteBike(@PathParam("bikeId") int deletedId ){
+    public void deleteBike(@PathParam("bikeId") int deletedId) {
         bs.deleteBike(deletedId);
     }
 
     @PUT
     @Path("/{bikeId}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Bike updateBike(Bike updatedBike){
+    public Bike updateBike(Bike updatedBike) {
         return bs.updateBike(updatedBike);
     }
 
