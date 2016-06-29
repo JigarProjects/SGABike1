@@ -1,5 +1,7 @@
 package com.temp.resource;
 
+import com.db.BikeDAO;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,11 +30,15 @@ public class BikeService {
 
 
     public Bike addBike(Bike newBike) {
-        int newSize = bikeList.size();
+
+        BikeDAO bikeDAO = new BikeDAO();
+        System.out.println("get hold of bikeDAO");
+        bikeDAO.createBike(newBike);
+        /*int newSize = bikeList.size();
         newBike.setId(newSize);
         System.out.println(newSize);
-        bikeList.add(newSize, newBike);
-        return bikeList.get(newSize);
+        bikeList.add(newSize, newBike);*/
+        return bikeList.get(0);
     }
 
     public Bike updateBike(Bike updatedBike) {
