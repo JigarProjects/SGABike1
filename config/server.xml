@@ -1,0 +1,16 @@
+<!--GOES INTO SERVER/context.xml -->
+<Context>
+
+    <Resource name="jdbc/jigarDB"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxActive="50"
+              maxIdle="30"
+              maxWait="10000"
+              username="root"
+              password="jradmin"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/sgabike"
+    />
+
+</Context>

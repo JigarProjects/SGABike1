@@ -11,11 +11,11 @@ Listing the items
     </div>-->
     <div ng-controller="bikeCtrl as bikeControl">
         <div>
-            <table class = "table">
+            <table class="table">
                 <tr>
                     <th>Product</th>
-                    <th>Price </th>
-                    <th>Price </th>
+                    <th>Price</th>
+                    <th>Price</th>
                 </tr>
                 <tr ng-repeat="oneBike in bikeControl.products">
                     <td><input type="checkbox" checklist-model="user.roles" checklist-value="role">{{}}</td>
@@ -28,6 +28,6 @@ Listing the items
     </div>
     <div>
         <button onclick="#createbike">Create</button>
-        <button >Delete</button>
+        <button>Delete</button>
     </div>
 </div>
