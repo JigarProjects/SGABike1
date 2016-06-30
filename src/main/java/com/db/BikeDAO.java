@@ -20,7 +20,7 @@ public class BikeDAO extends DAOBase {
             pstmt.setString(1, newBike.getName());
             pstmt.setString(2, newBike.getDescription());
             int i = pstmt.executeUpdate();
-            System.out.println(i);
+
 
             pstmt.close();
             conn.close();
