@@ -18,8 +18,9 @@ public class DAOBase extends SGALogger {
     private static DAOBase instance = null;
 
 
-    DAOBase() {
-        Context initContext = null;
+     DAOBase() {
+         super();
+         Context initContext = null;
         try {
             initContext = new InitialContext();
             Context envContext = (Context) initContext.lookup("java:comp/env");

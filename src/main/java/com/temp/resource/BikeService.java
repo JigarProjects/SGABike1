@@ -17,13 +17,13 @@ public class BikeService extends SGALogger{
         bikeList.add(0, new Bike(0, "jigar's 0 bike ", "No defects"));
         bikeList.add(1, new Bike(1, "jigar's 1 bike ", "No defects"));
         bikeList.add(2, new Bike(2, "jigar's 2 bike ", "No defects"));
-        _log.debug("test");
+        //_log.debug("test");
         System.out.println("Bike Service class called");
     }
 
     public List<Bike> getBikes() {
 
-        _log.debug("test");
+        //_log.debug("test");
         return bikeList;
     }
 
