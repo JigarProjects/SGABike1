@@ -1,16 +1,44 @@
-app.controller('bikeCtrl', ['$http', function ($http) {
+app.controller('bikeCtrl', ['$http','$scope', '$uibModal', function ($http, $scope, $uibModal) {
     var self = this;
-    self.products = [];
+    self.bikes = [];
+
+    /*Fetches list of bikes*/
     $http.get('./webapi/bike').success(function (data) {
-        self.products = data;
+        self.bikes = data;
     });
+    /*create bikes */
+    $scope.open = function () {
+        var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'mainhtml/createbike.html',
+            controller: 'ModalInstanceCtrl',
+            size:'lg'
+        });
+    };
+
+    $scope.user = {
+        bikes: []
+    };
+
+
+    $scope.delete = function(){
+        console.log("in delete"+$scope.user.bikes+":");
+        angular.forEach($scope.user.bikes, function(singlebike){
+            $http.delete('./webapi/bike', singlebike);
+        });
+    };
+
+
 }]);
 
-app.controller('bikeCreateCtrl', ['$http', function ($http) {
+
+
+app.controller('ModalInstanceCtrl', ['$http','$scope','$uibModalInstance',function ($http,$scope, $uibModalInstance) {
     var self = this;
-    self.bike = {};
-    self.submit = function () {
-        $http.post('./webapi/bike', self.bike)
-        ;
+
+    $scope.submit = function () {
+        $http.post('./webapi/bike', $scope.bike);
+        $uibModalInstance.close();
     }
+
 }]);

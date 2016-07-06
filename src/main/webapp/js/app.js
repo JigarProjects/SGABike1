@@ -1,7 +1,7 @@
 /**
  * Created by Jigar on 4/9/2016.
  */
-var app = angular.module('bike', ['ngRoute']);
+var app = angular.module('bike', ['ngRoute','ngAnimate', 'ui.bootstrap','checklist-model']);
 
 app.config(
     function ($routeProvider) {
@@ -14,7 +14,7 @@ app.config(
                 templateUrl: 'mainhtml/users.html'
             })
             .when('/create', {
-                templateUrl: 'mainhtml/CreateBike.html'
+                templateUrl: 'mainhtml/createbike.html'
             })
             .otherwise({
                 redirectTo: '/index.html'
