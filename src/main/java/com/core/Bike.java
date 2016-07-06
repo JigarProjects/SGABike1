@@ -1,4 +1,4 @@
-package com.temp.resource;
+package com.core;
 
 
 import javax.xml.bind.annotation.XmlRootElement;

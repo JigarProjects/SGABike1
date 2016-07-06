@@ -14,12 +14,12 @@ Listing the items
             <table class="table">
                 <tr>
                     <th>Product</th>
-                    <th>Price</th>
-                    <th>Price</th>
+                    <th>Bike</th>
+                    <th>Description</th>
                 </tr>
-                <tr ng-repeat="oneBike in bikeControl.products">
-                    <td><input type="checkbox" checklist-model="user.roles" checklist-value="role">{{}}</td>
-                    <td>{{oneBike.id}}</td>
+                <tr ng-repeat="oneBike in bikeControl.bikes">
+                    <td><input type="checkbox"  checklist-model="user.bikes" checklist-value="oneBike.id">
+                    {{oneBike.id}}</td>
                     <td>{{oneBike.name}}</td>
                     <td>{{oneBike.description}}</td>
                 <tr>
@@ -27,7 +27,8 @@ Listing the items
         </div>
     </div>
     <div>
-        <button onclick="#createbike">Create</button>
+        <button type="button" class="btn btn-default" ng-click="open()">Create</button>
+        <button type="button" class="btn btn-default" ng-click="delete()">Delete</button>
         <button>Delete</button>
     </div>
 </div>
