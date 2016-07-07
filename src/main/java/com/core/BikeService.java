@@ -1,4 +1,7 @@
-package com.temp.resource;
+package com.core;
+
+import com.SGALogger;
+import com.db.BikeDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,19 +9,16 @@ import java.util.List;
 /**
  * Created by Jigar on 4/9/2016.
  */
-public class BikeService {
+public class BikeService extends SGALogger{
     List<Bike> bikeList = new ArrayList<Bike>();
 
     public BikeService() {
-
-        bikeList.add(0, new Bike(0, "jigar's 0 bike ", "No defects"));
-        bikeList.add(1, new Bike(1, "jigar's 1 bike ", "No defects"));
-        bikeList.add(2, new Bike(2, "jigar's 2 bike ", "No defects"));
         System.out.println("Bike Service class called");
     }
 
     public List<Bike> getBikes() {
-        return bikeList;
+        BikeDAO bikeDAO = new BikeDAO();
+        return (List<Bike>) bikeDAO.listBike();
     }
 
     public Bike getBike(int id) {
@@ -28,11 +28,10 @@ public class BikeService {
 
 
     public Bike addBike(Bike newBike) {
-        int newSize = bikeList.size();
-        newBike.setId(newSize);
-        System.out.println(newSize);
-        bikeList.add(newSize, newBike);
-        return bikeList.get(newSize);
+
+        BikeDAO bikeDAO = new BikeDAO();
+        bikeDAO.createBike(newBike);
+        return bikeList.get(0);
     }
 
     public Bike updateBike(Bike updatedBike) {
@@ -41,8 +40,11 @@ public class BikeService {
     }
 
     public void deleteBike(int deleteBikeId) {
-        System.out.println(bikeList.size());
+        System.out.println(deleteBikeId);
+        BikeDAO bikeDAO = new BikeDAO();
+        bikeDAO.deleteBike(deleteBikeId);
+        /*System.out.println(bikeList.size());
         bikeList.remove(deleteBikeId);
-        System.out.println(bikeList.size());
+        System.out.println(bikeList.size());*/
     }
 }

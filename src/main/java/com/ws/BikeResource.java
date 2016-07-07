@@ -1,7 +1,7 @@
-package com.temp;
+package com.ws;
 
-import com.temp.resource.Bike;
-import com.temp.resource.BikeService;
+import com.core.Bike;
+import com.core.BikeService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
