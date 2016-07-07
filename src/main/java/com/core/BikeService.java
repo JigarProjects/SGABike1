@@ -41,6 +41,8 @@ public class BikeService extends SGALogger{
 
     public void deleteBike(int deleteBikeId) {
         System.out.println(deleteBikeId);
+        BikeDAO bikeDAO = new BikeDAO();
+        bikeDAO.deleteBike(deleteBikeId);
         /*System.out.println(bikeList.size());
         bikeList.remove(deleteBikeId);
         System.out.println(bikeList.size());*/
