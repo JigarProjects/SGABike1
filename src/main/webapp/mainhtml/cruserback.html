@@ -1,0 +1,25 @@
+
+<div id="listUser" class="panel panel-default" ng-app="bike">
+    <div class="panel-heading">User Management</div>
+
+    <div>
+        <table class="table">
+            <tr>
+                <th>Username</th>
+                <th>ID</th>
+            </tr>
+            <tr ng-repeat="oneBike in bikeControl.bikes">
+                <!--ngcheked if expression is true then it will be checked-->
+                <td><input type="checkbox" ng-checked="exists(oneBike.id, selected)" ng-click="toggle(oneBike.id, selected)">
+                    {{oneBike.id}}</td>
+                <td>{{oneBike.name}}</td>
+                <td>{{oneBike.description}}</td>
+                <td><button type="button" class="btn btn-default" ng-click="update(oneBike)">Update</button></td>
+            <tr>
+        </table>
+    </div>
+    <button type="button" class="btn btn-default" ng-click="open()">Create</button>
+    <button type="button" class="btn btn-default" ng-click="delete()">Delete</button>
+
+
+</div>
