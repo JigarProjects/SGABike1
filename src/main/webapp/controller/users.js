@@ -1,16 +1,19 @@
-app.controller('bikeCtrl', ['$http','$scope', '$uibModal', function ($http, $scope, $uibModal) {
+/**
+ * Created by Jigar on 7/10/2016.
+ */
+app.controller('userCtrl', ['$http','$scope', '$uibModal', function ($http, $scope, $uibModal) {
     var self = this;
-    self.bikes = [];
+    self.users = [];
 
     /*Fetches list of bikes*/
-    $http.get('./webapi/bike').success(function (data) {
-        self.bikes = data;
+    $http.get('./webapi/users').success(function (data) {
+        self.users = data;
     });
     /*create bikes */
     $scope.open = function () {
         var modalInstance = $uibModal.open({
             animation: true,
-            templateUrl: 'mainhtml/CreateBike.html',
+            templateUrl: 'mainhtml/CreateUser.html',
             controller: 'ModalInstanceCtrl',
             size:'lg'
         });

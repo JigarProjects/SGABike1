@@ -11,7 +11,8 @@ app.config(
                 controller: 'bikeCtrl'
             })
             .when('/user', {
-                templateUrl: 'mainhtml/users.html'
+                templateUrl: 'mainhtml/Users.html',
+                controller: 'userCtrl'
             })
             .when('/create', {
                 templateUrl: 'mainhtml/createbike.html'

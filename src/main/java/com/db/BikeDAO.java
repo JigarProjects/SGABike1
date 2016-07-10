@@ -92,4 +92,32 @@ public class BikeDAO extends DAOBase {
 
         }
     }
+
+    public void updateBike(Bike updatedBike){
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        try {
+            System.out.println("in bike updation " + updatedBike + ":");
+            conn = DAOBase.getConnection();
+            String SQL = "UPDATE BIKE SET NAME= ?, DESCRIPTION =? WHERE ID = ? ";
+
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1, updatedBike.getName());
+            pstmt.setString(2, updatedBike.getDescription());
+            pstmt.setInt(3, updatedBike.getId());
+            int i = pstmt.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println("Error: unable to SQL execute!");
+            System.out.println(e);
+        } finally {
+            try {
+                pstmt.close();
+                conn.close();
+            } catch (Exception e) {
+                _log.error(e);
+            }
+
+        }
+    }
 }

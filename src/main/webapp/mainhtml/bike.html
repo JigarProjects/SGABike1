@@ -23,12 +23,13 @@ Listing the items
                     {{oneBike.id}}</td>
                     <td>{{oneBike.name}}</td>
                     <td>{{oneBike.description}}</td>
+                    <td><button type="button" class="btn btn-default" ng-click="update(oneBike)">Update</button></td>
                 <tr>
             </table>
         </div>
         <button type="button" class="btn btn-default" ng-click="open()">Create</button>
         <button type="button" class="btn btn-default" ng-click="delete()">Delete</button>
-        <button>Delete</button>
-    </div>
 
+    </div>
+    <!--<uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>-->
 </div>

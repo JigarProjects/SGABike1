@@ -10,7 +10,7 @@ import java.util.List;
  * Created by Jigar on 4/9/2016.
  */
 public class BikeService extends SGALogger{
-    List<Bike> bikeList = new ArrayList<Bike>();
+    /*List<Bike> bikeList = new ArrayList<Bike>();*/
 
     public BikeService() {
         System.out.println("Bike Service class called");
@@ -23,7 +23,7 @@ public class BikeService extends SGALogger{
 
     public Bike getBike(int id) {
 
-        return (bikeList.get(id));
+        return ( new Bike(0,"empty","empty") );
     }
 
 
@@ -31,20 +31,19 @@ public class BikeService extends SGALogger{
 
         BikeDAO bikeDAO = new BikeDAO();
         bikeDAO.createBike(newBike);
-        return bikeList.get(0);
+        return ( new Bike(0,"empty","empty") );
     }
 
     public Bike updateBike(Bike updatedBike) {
-        bikeList.add(updatedBike.getId(), updatedBike);
-        return bikeList.get(updatedBike.getId());
+
+        BikeDAO bikeDAO = new BikeDAO();
+        bikeDAO.updateBike(updatedBike);
+        return ( new Bike(0,"empty","empty") );
     }
 
     public void deleteBike(int deleteBikeId) {
         System.out.println(deleteBikeId);
         BikeDAO bikeDAO = new BikeDAO();
         bikeDAO.deleteBike(deleteBikeId);
-        /*System.out.println(bikeList.size());
-        bikeList.remove(deleteBikeId);
-        System.out.println(bikeList.size());*/
     }
 }
