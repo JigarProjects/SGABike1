@@ -8,11 +8,13 @@ import org.apache.log4j.Logger;
  */
 public class SGALogger {
     public static Logger _log = null;
+
     static {
         _log = Logger.getLogger(SGALogger.class.getName());
         _log.debug("Single Intialization");
     }
-    public SGALogger(){
+
+    public SGALogger() {
         _log.debug("Called this class");
     }
 }

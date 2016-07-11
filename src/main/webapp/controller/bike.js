@@ -11,7 +11,7 @@ app.controller('bikeCtrl', ['$http','$scope', '$uibModal', function ($http, $sco
         var modalInstance = $uibModal.open({
             animation: true,
             templateUrl: 'mainhtml/CreateBike.html',
-            controller: 'ModalInstanceCtrl',
+            controller: 'CreateBikeCtrl',
             size:'lg'
         });
     };
@@ -77,7 +77,7 @@ app.controller('bikeCtrl', ['$http','$scope', '$uibModal', function ($http, $sco
 
 
 
-app.controller('ModalInstanceCtrl', ['$http','$scope','$uibModalInstance',function ($http,$scope, $uibModalInstance) {
+app.controller('CreateBikeCtrl', ['$http','$scope','$uibModalInstance',function ($http,$scope, $uibModalInstance) {
 
     $scope.submit = function () {
         $http.post('./webapi/bike', $scope.bike);

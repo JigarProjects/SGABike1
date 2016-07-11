@@ -8,3 +8,5 @@ Following technologies have been used for the development of this project
 - ANGULARJS
 - JERSEY WS
 - JDBC
+- MAVEN
+- LOG4j
