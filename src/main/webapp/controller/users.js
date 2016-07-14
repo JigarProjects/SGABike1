@@ -6,8 +6,7 @@ app.controller('userCtrl', ['$http','$scope', '$uibModal', function ($http, $sco
     $scope.users = [];
 
     $http.get('./webapi/users').success(function (data) {
-        self.users = data;
-
+        $scope.users = data;
     });
 
     $scope.open = function () {
@@ -72,9 +71,9 @@ app.controller('createUserCtrl', ['$http','$scope','$uibModalInstance',function 
 
 app.controller('UpdateUserCtrl', ['$http','$scope','$uibModalInstance','editUser',function ($http,$scope, $uibModalInstance, editUser) {
 
-    $scope.editUser = editUser;
+    $scope.edituser = editUser;
     $scope.update = function () {
-        $http.put('./webapi/users/'+editUser.id, $scope.editUser);
+        $http.put('./webapi/users/'+editUser.id, $scope.edituser);
         $uibModalInstance.close();
     }
 

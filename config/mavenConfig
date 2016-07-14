@@ -1,0 +1,8 @@
+Maven_home/setting.xml
+
+<server>
+    <id>TomcatServer</id>
+    <username>admin</username>
+    <password>password</password>
+</server>
+

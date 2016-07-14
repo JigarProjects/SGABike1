@@ -1,12 +1,14 @@
 
-<div id="listUser" class="panel panel-default" ng-app="bike">
+<div id="listUser" class="panel panel-default">
     <div class="panel-heading">User Management</div>
 
     <div>
         <table class="table">
             <tr>
-                <th>Username</th>
                 <th>ID</th>
+                <th>Username</th>
+                <th>UserId</th>
+                <th>Update</th>
             </tr>
             <tr ng-repeat="user in users">
                 <td><input type="checkbox" ng-checked="exists(user.id, selected)" ng-click="toggle(user.id, selected)">
