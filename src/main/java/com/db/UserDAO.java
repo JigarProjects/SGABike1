@@ -1,6 +1,6 @@
 package com.db;
 
-import com.core.Bike;
+import com.core.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,21 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Jigar on 6/28/2016.
+ * Created by Jigar on 7/10/2016.
  */
-public class BikeDAO extends DAOBase {
-
-    public void createBike(Bike newBike) {
+public class UserDAO extends DAOBase {
+    public void createUser(User newUser) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         try {
-            _log.debug("in bike createion " + newBike + ":");
+            _log.debug("in user creation " + newUser + ":");
             conn = DAOBase.getConnection();
-            String SQL = "insert into BIKE(NAME,DESCRIPTION) VALUES (?,?)";
+            String SQL = "insert into USER(USERID,NAME) VALUES (?,?)";
 
             pstmt = conn.prepareStatement(SQL);
-            pstmt.setString(1, newBike.getName());
-            pstmt.setString(2, newBike.getDescription());
+            pstmt.setInt(1, newUser.getUserid());
+            pstmt.setString(2, newUser.getName());
             int i = pstmt.executeUpdate();
 
         } catch (Exception e) {
@@ -40,18 +39,18 @@ public class BikeDAO extends DAOBase {
         }
     }
 
-    public List<Bike> listBike() {
+    public List<User> listUser() {
         Connection conn = null;
         PreparedStatement pstmt = null;
-        ResultSet bikeResult = null;
-        List<Bike> bikeList = new ArrayList<Bike>();
+        ResultSet userResult = null;
+        List<User> UserList = new ArrayList<User>();
         try {
             conn = DAOBase.getConnection();
-            String SQL = "SELECT ID,NAME,DESCRIPTION FROM BIKE";
+            String SQL = "SELECT ID,USERID,NAME FROM USER";
             pstmt = conn.prepareStatement(SQL);
-            bikeResult = pstmt.executeQuery();
-            while (bikeResult.next()) {
-                bikeList.add(new Bike(bikeResult.getInt("ID"), bikeResult.getString("NAME"), bikeResult.getString("DESCRIPTION")));
+            userResult = pstmt.executeQuery();
+            while (userResult.next()) {
+                UserList.add(new User(userResult.getInt("ID"), userResult.getInt("USERID"), userResult.getString("NAME")));
             }
         } catch (Exception e) {
             _log.error("Error: unable to SQL execute!");
@@ -64,19 +63,19 @@ public class BikeDAO extends DAOBase {
                 _log.error(e);
             }
         }
-        return bikeList;
+        return UserList;
     }
 
-    public void deleteBike(int bike) {
+    public void deleteUser(int id) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         try {
-            _log.debug("in bike deletion " + bike + ":");
+            _log.debug("in user deletion " + id + ":");
             conn = DAOBase.getConnection();
-            String SQL = "DELETE FROM BIKE WHERE ID = ?";
+            String SQL = "DELETE FROM USER WHERE ID = ?";
 
             pstmt = conn.prepareStatement(SQL);
-            pstmt.setString(1, String.valueOf(bike));
+            pstmt.setString(1, String.valueOf(id));
             int i = pstmt.executeUpdate();
 
         } catch (Exception e) {
@@ -93,18 +92,18 @@ public class BikeDAO extends DAOBase {
         }
     }
 
-    public void updateBike(Bike updatedBike) {
+    public void updateUser(User updatedUser) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         try {
-            _log.debug("in bike updation " + updatedBike + ":");
+            _log.debug("in bike updation " + updatedUser + ":");
             conn = DAOBase.getConnection();
-            String SQL = "UPDATE BIKE SET NAME= ?, DESCRIPTION =? WHERE ID = ? ";
+            String SQL = "UPDATE USER SET NAME= ? WHERE USERID = ? ";
 
             pstmt = conn.prepareStatement(SQL);
-            pstmt.setString(1, updatedBike.getName());
-            pstmt.setString(2, updatedBike.getDescription());
-            pstmt.setInt(3, updatedBike.getId());
+            pstmt.setString(1, updatedUser.getName());
+            pstmt.setString(2, String.valueOf(updatedUser.getUserid()));
+
             int i = pstmt.executeUpdate();
 
         } catch (Exception e) {

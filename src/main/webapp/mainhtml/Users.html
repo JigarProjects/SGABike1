@@ -1,0 +1,25 @@
+
+<div id="listUser" class="panel panel-default">
+    <div class="panel-heading">User Management</div>
+
+    <div>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>UserId</th>
+                <th>Update</th>
+            </tr>
+            <tr ng-repeat="user in users">
+                <td><input type="checkbox" ng-checked="exists(user.id, selected)" ng-click="toggle(user.id, selected)">
+                    {{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.userid}}</td>
+                <td><button type="button" class="btn btn-default" ng-click="update(user)">Update</button></td>
+            <tr>
+        </table>
+    </div>
+    <button type="button" class="btn btn-default" ng-click="open()">Create</button>
+    <button type="button" class="btn btn-default" ng-click="delete()">Delete</button>
+
+</div>

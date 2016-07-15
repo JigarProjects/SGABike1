@@ -11,7 +11,7 @@ app.controller('bikeCtrl', ['$http','$scope', '$uibModal', function ($http, $sco
         var modalInstance = $uibModal.open({
             animation: true,
             templateUrl: 'mainhtml/CreateBike.html',
-            controller: 'ModalInstanceCtrl',
+            controller: 'CreateBikeCtrl',
             size:'lg'
         });
     };
@@ -56,28 +56,11 @@ app.controller('bikeCtrl', ['$http','$scope', '$uibModal', function ($http, $sco
         });
         location.reload();
     };
-
-    //Pagination code
-    $scope.totalItems = 64;
-    $scope.currentPage = 4;
-
-    $scope.setPage = function (pageNo) {
-        $scope.currentPage = pageNo;
-    };
-
-    $scope.pageChanged = function() {
-        $log.log('Page changed to: ' + $scope.currentPage);
-    };
-
-    $scope.maxSize = 5;
-    $scope.bigTotalItems = 175;
-    $scope.bigCurrentPage = 1;
-
 }]);
 
 
 
-app.controller('ModalInstanceCtrl', ['$http','$scope','$uibModalInstance',function ($http,$scope, $uibModalInstance) {
+app.controller('CreateBikeCtrl', ['$http','$scope','$uibModalInstance',function ($http,$scope, $uibModalInstance) {
 
     $scope.submit = function () {
         $http.post('./webapi/bike', $scope.bike);

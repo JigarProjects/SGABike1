@@ -18,9 +18,9 @@ public class DAOBase extends SGALogger {
     private static DAOBase instance = null;
 
 
-     DAOBase() {
-         super();
-         Context initContext = null;
+    DAOBase() {
+        super();
+        Context initContext = null;
         try {
             initContext = new InitialContext();
             Context envContext = (Context) initContext.lookup("java:comp/env");
@@ -30,8 +30,9 @@ public class DAOBase extends SGALogger {
             e.printStackTrace();
         }
     }
-    private static DAOBase getInstance(){
-        if(instance == null) {
+
+    private static DAOBase getInstance() {
+        if (instance == null) {
             instance = new DAOBase();
             System.out.println("One time call only .");
             _log.debug("test");
@@ -50,7 +51,6 @@ public class DAOBase extends SGALogger {
         }
         return cn;
     }
-
 
 
 }

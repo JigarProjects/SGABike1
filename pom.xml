@@ -9,6 +9,8 @@
     <version>1.0-SNAPSHOT</version>
     <name>bikerent</name>
 
+
+
     <build>
         <finalName>bikerent</finalName>
         <plugins>
@@ -67,4 +69,11 @@
         <jersey.version>2.22.2</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>TomcatServer</id>
+            <url>http://localhost:8080/bikerent</url>
+        </repository>
+    </repositories>
 </project>

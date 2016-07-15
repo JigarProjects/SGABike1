@@ -1,7 +1,6 @@
 /**
  * Created by Jigar on 4/9/2016.
  */
-//var app = angular.module('bike', ['ngRoute','ngAnimate', 'ui.bootstrap','checklist-model']);
 var app = angular.module('bike', ['ngRoute','ngAnimate', 'ui.bootstrap']);
 app.config(
     function ($routeProvider) {
