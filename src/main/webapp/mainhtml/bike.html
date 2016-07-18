@@ -4,12 +4,12 @@ Bike can be created, deleted if no entry is associted, searched, updated. Create
 Listing the items
 
 
-<div id="listBike" class="panel panel-default" ng-app="bike">
+<div id="listBike" class="panel panel-default" >
     <div class="panel-heading">Bike Management</div>
     <!--<div class = "panel-body">
         This is a Basic panel
     </div>-->
-    <div ng-controller="bikeCtrl as bikeControl">
+    <div >
         <div>
             <table class="table">
                 <tr>
@@ -17,10 +17,10 @@ Listing the items
                     <th>Bike</th>
                     <th>Description</th>
                 </tr>
-                <tr ng-repeat="oneBike in bikeControl.bikes">
+                <tr ng-repeat="oneBike in bikes">
                     <!--ngcheked if expression is true then it will be checked-->
                     <td><input type="checkbox" ng-checked="exists(oneBike.id, selected)" ng-click="toggle(oneBike.id, selected)">
-                    {{oneBike.id}}</td>
+                        {{oneBike.id}}</td>
                     <td>{{oneBike.name}}</td>
                     <td>{{oneBike.description}}</td>
                     <td><button type="button" class="btn btn-default" ng-click="update(oneBike)">Update</button></td>
