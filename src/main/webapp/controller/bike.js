@@ -1,7 +1,7 @@
 app.controller('bikeCtrl', ['$http','$scope', '$uibModal','mpiService', function ($http, $scope, $uibModal,mpiService) {
-    var self = this;
+    
     $scope.bikes = [];
-    //THis controller has variable selectedBike coming from attachment js
+    //THis controller has variable selectedBike coming from searchBike.html
 
     /*Fetches list of bikes*/
     $http.get('./webapi/bike').success(function (data) {
@@ -58,9 +58,10 @@ app.controller('bikeCtrl', ['$http','$scope', '$uibModal','mpiService', function
         location.reload();
     };
 
-    $scope.select = function(){
+    $scope.selectedbike = function(){
         //pass this bike to attachment controller
-        mpiService.setSelectedBike( $scope.selectedBike );
+        mpiService.setSelectedBike( $scope.searchedBike );
+        console.log("in selection "+$scope.searchedBike+":");
     };
 }]);
 

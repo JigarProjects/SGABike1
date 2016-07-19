@@ -9,7 +9,7 @@ Listing the items
     <!--<div class = "panel-body">
         This is a Basic panel
     </div>-->
-    <div ng-controller="bikeCtrl as bikeControl">
+    <div >
         <div>
             <table class="table">
                 <tr>
@@ -17,7 +17,7 @@ Listing the items
                     <th>Bike</th>
                     <th>Description</th>
                 </tr>
-                <tr ng-repeat="oneBike in bikeControl.bikes">
+                <tr ng-repeat="oneBike in bikes">
                     <!--ngcheked if expression is true then it will be checked-->
                     <td><input type="checkbox" ng-checked="exists(oneBike.id, selected)" ng-click="toggle(oneBike.id, selected)">
                         {{oneBike.id}}</td>

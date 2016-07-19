@@ -1,7 +1,7 @@
 /**
  * Created by Jigar on 7/17/2016.
  */
-angular.factory(
+app.factory(
     'mpiService', function () {
         var selectedBike;
         var selectedUser;

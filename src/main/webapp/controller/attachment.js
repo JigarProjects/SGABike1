@@ -1,7 +1,8 @@
 /**
  * Created by Jigar on 7/16/2016.
  */
-app.controller('attachmentCtrl',['$http','$scope', '$uibModal', function ($http, $scope, $uibModal){
+app.controller('attachmentCtrl',['$http','$scope', '$uibModal','mpiService', function ($http, $scope, $uibModal, mpiService){
+    
     $scope.searchBike = function () {
         var modalInstance = $uibModal.open({
             animation: true,
@@ -18,23 +19,18 @@ app.controller('attachmentCtrl',['$http','$scope', '$uibModal', function ($http,
             size:'lg'
         });
     };
+    $scope.attachBike = function () {
+        console.log("from attachment service class "+mpiService.getSelectedBike());
+        console.log("from attachment service class "+mpiService.getSelectedUser());
+    }
 }
 ]);
-/*
-//LIST ALL THE USERS
-app.controller('SearchBikeCtrl', ['$http','$scope','$uibModalInstance',function ($http,$scope, $uibModalInstance) {
-
-    $scope.submit = function () {
-        $http.post('./webapi/bike', $scope.bike);
-        $uibModalInstance.close();
-    }
-
-}]);*/
 
 //LIST SPECIFIC USER
 app.controller('SearchUserCtrl', ['$http','$scope','$uibModalInstance',function ($http,$scope, $uibModalInstance) {
 
     $scope.submit = function () {
+
         $http.post('./webapi/users/', $scope.bike);
         $uibModalInstance.close();
     }
