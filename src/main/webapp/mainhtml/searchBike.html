@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h3 class="modal-title">Search Bike</h3>
+    <h3 class="modal-title">Search Bikes -></h3>
 </div>
 <div class="modal-body">
 
@@ -16,8 +16,8 @@
                 <tr ng-repeat="oneBike in bikes">
 
                     <td>
-                        <input type="radio" name="bike" ng-model="$parent.searchedBike" value="{{oneBike.id}}" >
-                        {{oneBike.id}}
+                        <input type="radio" name="bike" ng-model="$parent.searchedBike" value={{oneBike.id}} >
+                        {{oneBike.id}} updated version
                     </td>
                     <td>{{oneBike.name}}</td>
                     <td>{{oneBike.description}} - {{searchedBike}}</td>

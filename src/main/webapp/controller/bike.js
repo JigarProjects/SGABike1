@@ -62,7 +62,7 @@ app.controller('bikeCtrl', ['$http','$scope', '$uibModal','mpiService', function
         //pass this bike to attachment controller
         mpiService.setSelectedBike( $scope.searchedBike );
         console.log("in selection "+$scope.searchedBike+":");
-    };
+};
 }]);
 
 

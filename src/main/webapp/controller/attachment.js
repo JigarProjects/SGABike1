@@ -2,7 +2,7 @@
  * Created by Jigar on 7/16/2016.
  */
 app.controller('attachmentCtrl',['$http','$scope', '$uibModal','mpiService', function ($http, $scope, $uibModal, mpiService){
-    
+    $scope.attachment = {};
     $scope.searchBike = function () {
         var modalInstance = $uibModal.open({
             animation: true,
@@ -22,17 +22,9 @@ app.controller('attachmentCtrl',['$http','$scope', '$uibModal','mpiService', fun
     $scope.attachBike = function () {
         console.log("from attachment service class "+mpiService.getSelectedBike());
         console.log("from attachment service class "+mpiService.getSelectedUser());
-    }
+        $scope.attachment.userID = mpiService.getSelectedUser();
+        $scope.attachment.bikeID = mpiService.getSelectedBike();
+        $http.post('./webapi/attachment', $scope.attachment);
+    };
 }
 ]);
-
-//LIST SPECIFIC USER
-app.controller('SearchUserCtrl', ['$http','$scope','$uibModalInstance',function ($http,$scope, $uibModalInstance) {
-
-    $scope.submit = function () {
-
-        $http.post('./webapi/users/', $scope.bike);
-        $uibModalInstance.close();
-    }
-
-}]);
