@@ -10,15 +10,21 @@ import java.util.List;
  */
 public class AttachmentService extends SGALogger {
 
+    public AttachmentService()
+    {
+        System.out.println("Attachement Service test class called");
+    }
     public void attachBike(Attachment newAttachment){
         _log.info("hit attachment api "+newAttachment);
+
         AttachmentDAO attachmentDAO = new AttachmentDAO();
         attachmentDAO.attachBike(newAttachment);
     }
 
-    /*public List<Bike> getAttachments() {
-        AttachmentDAO attachmentDAO = new AttachmentDAO();
-        return (List<Bike>) attachmentDAO.listAttachments();
-    }*/
+    public void getAttachments() {
+        System.out.println("teste");
+        /*AttachmentDAO attachmentDAO = new AttachmentDAO();
+        return (List<Bike>) attachmentDAO.listAttachments();*/
+    }
 
 }

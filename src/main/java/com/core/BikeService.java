@@ -12,7 +12,7 @@ public class BikeService extends SGALogger {
     /*List<Bike> bikeList = new ArrayList<Bike>();*/
 
     public BikeService() {
-        System.out.println("Bike Service class called");
+        System.out.println("Bike Service test class called");
     }
 
     public List<Bike> getBikes() {

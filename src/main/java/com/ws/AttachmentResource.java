@@ -6,6 +6,8 @@ import com.core.AttachmentService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Jigar on 7/21/2016.
@@ -15,18 +17,38 @@ import javax.ws.rs.core.MediaType;
 public class AttachmentResource {
     AttachmentService attachmentService = new AttachmentService();
 
-    @PUT
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Attachment attachBike(Attachment newAttachment) {
         System.out.println("hit there ");
         attachmentService.attachBike(newAttachment);
+        return  (new Attachment(0,0));
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Attachment> getAttachments() {
+
+        attachmentService.getAttachments();
+        return new ArrayList<Attachment>();
+    }
+
+    @DELETE
+    @Path("/{attachmentID}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void deleteAttachment(@PathParam("attachmentID") int deletedId) {
+
+
+        //attachmentService.deleteBike(deletedId);
+    }
+
+    @PUT
+    @Path("/{attachmentID}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Attachment updateAttachment(Attachment updatedAttachment) {
+
+        //return bs.updateBike(updatedBike);
         return  new Attachment(0,0);
     }
 
-    /*@GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Attachment> getBikes() {
-        return attachmentService.getBikes();
-    }
-*/
 }

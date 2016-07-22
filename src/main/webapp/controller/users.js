@@ -84,7 +84,7 @@ app.controller('SearchUserCtrl',['$http','$scope','$uibModalInstance','mpiServic
     $scope.searchUser = function(){
         $http.get('./webapi/users/'+$scope.userId).success(function (userToAttach) {
             console.log("in selection "+userToAttach.userid+":");
-            mpiService.setSelectedUser( userToAttach.userid );
+            mpiService.setSelectedUser( userToAttach.id );
         });
     }
 }]);

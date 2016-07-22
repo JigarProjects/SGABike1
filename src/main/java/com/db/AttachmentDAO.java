@@ -13,6 +13,7 @@ import java.util.List;
  * Created by Jigar on 7/21/2016.
  */
 public class AttachmentDAO extends DAOBase {
+
     public void attachBike(Attachment newAttachment) {
         Connection conn = null;
         PreparedStatement pstmt = null;
