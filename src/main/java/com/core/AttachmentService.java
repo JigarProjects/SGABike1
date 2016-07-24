@@ -21,10 +21,15 @@ public class AttachmentService extends SGALogger {
         attachmentDAO.attachBike(newAttachment);
     }
 
-    public void getAttachments() {
-        System.out.println("teste");
-        /*AttachmentDAO attachmentDAO = new AttachmentDAO();
-        return (List<Bike>) attachmentDAO.listAttachments();*/
+    public List<Attachment> getAttachments() {
+
+        AttachmentDAO attachmentDAO = new AttachmentDAO();
+        return (List<Attachment>) attachmentDAO.listAttachments();
     }
 
+    public void deleteAttachment(int deletedId) {
+        System.out.println("in delete attachment from service");
+        AttachmentDAO attachmentDAO = new AttachmentDAO();
+        attachmentDAO.detachBike(deletedId);
+    }
 }

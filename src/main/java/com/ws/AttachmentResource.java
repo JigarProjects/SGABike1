@@ -28,18 +28,15 @@ public class AttachmentResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Attachment> getAttachments() {
-
-        attachmentService.getAttachments();
-        return new ArrayList<Attachment>();
+        return attachmentService.getAttachments();
     }
 
     @DELETE
     @Path("/{attachmentID}")
     @Consumes(MediaType.APPLICATION_JSON)
     public void deleteAttachment(@PathParam("attachmentID") int deletedId) {
-
-
-        //attachmentService.deleteBike(deletedId);
+        System.out.println("detechment intiation"+deletedId);
+        attachmentService.deleteAttachment(deletedId);
     }
 
     @PUT
