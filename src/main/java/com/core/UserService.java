@@ -14,10 +14,6 @@ public class UserService extends SGALogger {
         return userDAO.listUser();
     }
 
-    public User getUser(int userId) {
-        return (new User(0, 0, "empty"));
-    }
-
     public User createUser(User newUser) {
         UserDAO userDAO = new UserDAO();
         userDAO.createUser(newUser);
@@ -34,5 +30,12 @@ public class UserService extends SGALogger {
         UserDAO userDAO = new UserDAO();
         userDAO.updateUser(updatedUser);
         return (new User(0, 0, "empty"));
+    }
+
+    public User getUserById(int userId) {
+        UserDAO userDAO = new UserDAO();
+        User foundUser =  userDAO.getUserByID(userId);
+        _log.debug("in userService "+foundUser);
+        return (foundUser);
     }
 }

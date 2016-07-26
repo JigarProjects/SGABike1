@@ -13,15 +13,16 @@ app.config(
                 templateUrl: 'mainhtml/Users.html',
                 controller: 'userCtrl'
             })
-            /*.when('/create', {
-                templateUrl: 'mainhtml/createbike.html'
-            })*/
             .when('/allocate', {
-                templateUrl: 'mainhtml/AttachBike.html',
+                templateUrl: 'mainhtml/ListAttachment.html',
+                controller: 'attachmentCtrl'
+            })
+            .when('/attachallocate', {
+                templateUrl: 'mainhtml/CreateAttachment.html',
                 controller: 'attachmentCtrl'
             })
             .otherwise({
-                redirectTo: 'mainhtml/AttachBike.html'
+                redirectTo: 'mainhtml/CreateAttachment.html'
             });
     }
 );

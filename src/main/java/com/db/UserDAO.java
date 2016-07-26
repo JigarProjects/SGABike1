@@ -119,4 +119,39 @@ public class UserDAO extends DAOBase {
 
         }
     }
+
+    public User getUserByID(int userId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet userResult = null;
+        User foundUser = null;
+        try {
+            _log.debug("in bike fetch using ID " + userId + ":");
+            conn = DAOBase.getConnection();
+            String SQL = "SELECT NAME,ID FROM USER WHERE USERID = ? ";
+
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setInt(1, userId);
+
+            userResult = pstmt.executeQuery();
+            while (userResult.next()) {
+                foundUser = (new User(userResult.getInt("ID"), userId, userResult.getString("NAME")));
+            }
+
+
+        } catch (Exception e) {
+            _log.error("NEW Error: unable to SQL execute!");
+            _log.error(e.getStackTrace());
+        } finally {
+            try {
+                pstmt.close();
+                conn.close();
+            } catch (Exception e) {
+                _log.error(e);
+            }
+
+        }
+        _log.debug("found user "+foundUser);
+        return foundUser;
+    }
 }

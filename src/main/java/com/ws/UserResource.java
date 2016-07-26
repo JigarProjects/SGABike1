@@ -24,8 +24,11 @@ public class UserResource {
 
     @GET
     @Path("/{userId}")
+    @Produces(MediaType.APPLICATION_JSON)
     public User getUser(@PathParam("userId") int userId) {
-        return userService.getUser(userId);
+        User userToAttach = userService.getUserById(userId);
+        System.out.println(" "+userToAttach);
+        return  userToAttach;
     }
 
 
@@ -47,5 +50,14 @@ public class UserResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public User updateUser(User updatedUser) {
         return userService.updateUser(updatedUser);
+    }
+
+
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/search/{userId}")
+    public User getUserById(@PathParam("userId") int foundUserID) {
+        User userToAttach = userService.getUserById(foundUserID);
+        System.out.println(" "+userToAttach);
+        return  userToAttach;
     }
 }

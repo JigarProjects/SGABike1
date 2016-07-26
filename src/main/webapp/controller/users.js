@@ -1,7 +1,7 @@
 /**
  * Created by Jigar on 7/10/2016.
  */
-app.controller('userCtrl', ['$http','$scope', '$uibModal', function ($http, $scope, $uibModal) {
+app.controller('userCtrl', ['$http','$scope', '$uibModal','mpiService', function ($http, $scope, $uibModal) {
     var self = this;
     $scope.users = [];
 
@@ -77,4 +77,14 @@ app.controller('UpdateUserCtrl', ['$http','$scope','$uibModalInstance','editUser
         $uibModalInstance.close();
     }
 
+}]);
+
+app.controller('SearchUserCtrl',['$http','$scope','$uibModalInstance','mpiService',function ($http,$scope, $uibModalInstance,mpiService){
+
+    $scope.searchUser = function(){
+        $http.get('./webapi/users/'+$scope.userId).success(function (userToAttach) {
+            console.log("in selection "+userToAttach.userid+":");
+            mpiService.setSelectedUser( userToAttach.id );
+        });
+    }
 }]);
