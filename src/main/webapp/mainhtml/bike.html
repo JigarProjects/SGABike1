@@ -10,21 +10,25 @@ Listing the items
         This is a Basic panel
     </div>-->
     <div >
-        <div>
+        <div class="table-responsive">
             <table class="table">
-                <tr>
-                    <th>Product</th>
-                    <th>Bike</th>
-                    <th>Description</th>
-                </tr>
-                <tr ng-repeat="oneBike in bikes">
-                    <!--ngcheked if expression is true then it will be checked-->
-                    <td><input type="checkbox" ng-checked="exists(oneBike.id, selected)" ng-click="toggle(oneBike.id, selected)">
-                        {{oneBike.id}}</td>
-                    <td>{{oneBike.name}}</td>
-                    <td>{{oneBike.description}}</td>
-                    <td><button type="button" class="btn btn-default" ng-click="update(oneBike)">Update</button></td>
-                <tr>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Bike</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="oneBike in bikes">
+                        <!--ngcheked if expression is true then it will be checked-->
+                        <td><input type="checkbox" ng-checked="exists(oneBike.id, selected)" ng-click="toggle(oneBike.id, selected)">
+                            {{oneBike.id}}</td>
+                        <td>{{oneBike.name}}</td>
+                        <td>{{oneBike.description}}</td>
+                        <td><button type="button" class="btn btn-default" ng-click="update(oneBike)">Update</button></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         <button type="button" class="btn btn-default" ng-click="open()">Create</button>
