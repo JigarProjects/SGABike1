@@ -5,10 +5,16 @@ import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import java.io.IOException;
-import java.util.Properties;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Map;
+import java.util.Timer;
 
 
 /**
@@ -18,25 +24,32 @@ public class configsetup extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-
-        Email email = new SimpleEmail();
-        email.setHostName("smtp.googlemail.com");
-        email.setSmtpPort(465);
-        email.setAuthenticator(new DefaultAuthenticator("jrtest1245@gmail.com", "j123$$jr"));
-        email.setSSLOnConnect(true);
-        try {
-            email.setFrom("jrtest1245@gmail.com");
-            email.setSubject("TestMail");
-            email.setMsg("This is a test mail ... :-)");
-            email.addTo("jrtest1245@gmail.com");
-            email.send();
-        } catch (EmailException e) {
-            e.printStackTrace();
-        }
+        //Setup scheduler in java
+        PropertyProvider pr = PropertyProvider.getInstance();
 
 
+        String time = pr.getPropertyMap().get("time");
 
-        System.out.println("check the timing bro");
+        String[] timeArray = time.split(":");
+
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        /*System.out.println("timer : "+time+ " : "+cal.getTime());
+        cal.set(Calendar.HOUR, Integer.parseInt(timeArray[0]));
+        cal.set(Calendar.MINUTE, Integer.parseInt(timeArray[1]));*/
+
+        ServletConfig conf = getServletConfig();
+        String path = conf.getServletContext().getRealPath("/");
+        pr.addToMap("path",path);
+
+        System.out.println("intializing schedulers "+cal.getTime());
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new EmailTask(), cal.getTime(), 60*1000 );
+        // hour, min, second, millisecon
+
+
+
     }
 
     /*protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
