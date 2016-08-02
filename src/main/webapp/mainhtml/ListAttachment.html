@@ -1,0 +1,21 @@
+<div id="listBike" class="panel panel-default" ng-app="bike">
+    <div class="panel-heading">Attachment Management</div>
+
+    <div >
+        <div>
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>BikeId</th>
+                </tr>
+                <tr ng-repeat="attachment in foundAttachments">
+                    <td><input type="checkbox" ng-checked="exists(attachment.userID, selected)" ng-click="toggle(attachment.userID, selected)">
+                        {{attachment.userID}}</td>
+                    <td>{{attachment.bikeID}}</td>
+                    <!--<td><button type="button" class="btn btn-default" ng-click="update(oneBike)">Update</button></td>-->
+                <tr>
+            </table>
+        </div>
+        <button type="button" class="btn btn-default" ng-click="delete()">Detachment</button>
+    </div>
+</div>
