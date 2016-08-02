@@ -19,7 +19,7 @@ app.config(
             })
             .when('/attachallocate', {
                 templateUrl: 'mainhtml/CreateAttachment.html',
-                controller: 'attachmentCtrl'
+                controller: 'createAttachmentCtrl'
             })
             .otherwise({
                 redirectTo: 'mainhtml/CreateAttachment.html'

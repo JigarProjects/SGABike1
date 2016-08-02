@@ -11,15 +11,25 @@ public class User {
     private int id;
     private int userid;
     private String name;
+    private String emailID;
 
     User() {
         super();
     }
 
-    public User(int id, int userid, String name) {
+    public User(int id, int userid, String name, String emailID) {
         this.id = id;
         this.userid = userid;
         this.name = name;
+        this.emailID = emailID;
+    }
+
+    public String getEmailID() {
+        return emailID;
+    }
+
+    public void setEmailID(String emailID) {
+        this.emailID = emailID;
     }
 
     public int getId() {

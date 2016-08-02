@@ -50,7 +50,7 @@ public class UserDAO extends DAOBase {
             pstmt = conn.prepareStatement(SQL);
             userResult = pstmt.executeQuery();
             while (userResult.next()) {
-                UserList.add(new User(userResult.getInt("ID"), userResult.getInt("USERID"), userResult.getString("NAME")));
+                UserList.add(new User(userResult.getInt("ID"), userResult.getInt("USERID"), userResult.getString("NAME"), null));
             }
         } catch (Exception e) {
             _log.error("Error: unable to SQL execute!");
@@ -128,14 +128,14 @@ public class UserDAO extends DAOBase {
         try {
             _log.debug("in bike fetch using ID " + userId + ":");
             conn = DAOBase.getConnection();
-            String SQL = "SELECT NAME,ID FROM USER WHERE USERID = ? ";
+            String SQL = "SELECT NAME,ID,EMAIL FROM USER WHERE USERID = ? ";
 
             pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, userId);
 
             userResult = pstmt.executeQuery();
             while (userResult.next()) {
-                foundUser = (new User(userResult.getInt("ID"), userId, userResult.getString("NAME")));
+                foundUser = (new User(userResult.getInt("ID"), userId, userResult.getString("NAME"), userResult.getString("EMAIL")));
             }
 
 
@@ -153,5 +153,34 @@ public class UserDAO extends DAOBase {
         }
         _log.debug("found user "+foundUser);
         return foundUser;
+    }
+
+    public ArrayList<User> notifyUsers(){
+        ArrayList<User> userList = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet userResult = null;
+        try {
+            conn = DAOBase.getConnection();
+            String SQL = "select b.EMAIL, b.ID,b.USERID,b.NAME " +
+                    " from association a, user b " +
+                    " where a.BINDDATE < now() and a.id = b.id;";
+            pstmt = conn.prepareStatement(SQL);
+            userResult = pstmt.executeQuery();
+            while (userResult.next()) {
+                userList.add( new User(userResult.getInt("ID"), userResult.getInt("USERID"), userResult.getString("NAME"), userResult.getString("EMAIL")) );
+            }
+        } catch (Exception e) {
+            _log.error("Error: unable to SQL execute!");
+            _log.error(e);
+        } finally {
+            try {
+                pstmt.close();
+                conn.close();
+            } catch (Exception e) {
+                _log.error(e);
+            }
+        }
+        return  userList;
     }
 }

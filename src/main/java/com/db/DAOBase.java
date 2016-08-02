@@ -34,7 +34,7 @@ public class DAOBase extends SGALogger {
     private static DAOBase getInstance() {
         if (instance == null) {
             instance = new DAOBase();
-            System.out.println("One time call only .");
+            System.out.println("One time call only asd.");
             _log.debug("test");
 
         }

@@ -17,4 +17,6 @@ public class SGALogger {
     public SGALogger() {
         _log.debug("Called this class");
     }
+
+
 }
