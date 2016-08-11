@@ -1,4 +1,32 @@
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.0.1.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <form role="form" ng-submit="attachBike()">
+    <div>
+        <div class="row">
+            <div class="col-md-3">
+                <h4>Start Date</h4>
+                <uib-timepicker ng-model="start" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+                <span class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="start" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="startDate()"><i class="ti-calendar"></i></button>
+          </span>
+                    </span>
+            </div>
+            <div class="col-md-3 col-md-offset-1">
+                <h4>End Date</h4>
+                <uib-timepicker ng-model="end" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="end" is-open="popup2.opened" min="start" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="endDate()"><i class="ti-calendar"></i></button>
+          </span>
+                </p>
+            </div>
+        </div>
+    </div>
     <div class="form-group">
         <h2>ID is {{associateBike}}</h2>
         <button type="button" class="btn btn-default" ng-click="searchBike()">Create</button>
