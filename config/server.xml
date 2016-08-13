@@ -13,4 +13,16 @@
               url="jdbc:mysql://localhost:3306/sgabike"
     />
 
+   <!-- <Resource name="jdbc/jigarDB"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxActive="50"
+              maxIdle="30"
+              maxWait="10000"
+              username="root"
+              password="jradmin12345678"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://jigardb.cnp3coqhd7zp.us-west-2.rds.amazonaws.com:3306/jigarDB"
+    />-->
+
 </Context>
