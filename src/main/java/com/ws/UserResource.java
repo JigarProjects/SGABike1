@@ -27,8 +27,8 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     public User getUser(@PathParam("userId") int userId) {
         User userToAttach = userService.getUserById(userId);
-        System.out.println(" "+userToAttach);
-        return  userToAttach;
+        System.out.println(" " + userToAttach);
+        return userToAttach;
     }
 
 
@@ -57,7 +57,7 @@ public class UserResource {
     @Path("/search/{userId}")
     public User getUserById(@PathParam("userId") int foundUserID) {
         User userToAttach = userService.getUserById(foundUserID);
-        System.out.println(" "+userToAttach);
-        return  userToAttach;
+        System.out.println(" " + userToAttach);
+        return userToAttach;
     }
 }

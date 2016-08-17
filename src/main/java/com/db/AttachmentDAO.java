@@ -41,7 +41,7 @@ public class AttachmentDAO extends DAOBase {
         }
     }
 
-    public List<Attachment>  listAttachments() {
+    public List<Attachment> listAttachments() {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet atatahmentResult = null;
@@ -65,7 +65,7 @@ public class AttachmentDAO extends DAOBase {
                 _log.error(e);
             }
         }
-        System.out.println("in dao "+attachmentList);
+        System.out.println("in dao " + attachmentList);
         return attachmentList;
     }
 

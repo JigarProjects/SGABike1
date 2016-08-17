@@ -17,7 +17,7 @@ public class UserService extends SGALogger {
     public User createUser(User newUser) {
         UserDAO userDAO = new UserDAO();
         userDAO.createUser(newUser);
-        return (new User(0, 0, "empty",null));
+        return (new User(0, 0, "empty", null));
     }
 
     public void deleteUser(int deletedId) {
@@ -29,13 +29,13 @@ public class UserService extends SGALogger {
     public User updateUser(User updatedUser) {
         UserDAO userDAO = new UserDAO();
         userDAO.updateUser(updatedUser);
-        return (new User(0, 0, "empty",null));
+        return (new User(0, 0, "empty", null));
     }
 
     public User getUserById(int userId) {
         UserDAO userDAO = new UserDAO();
-        User foundUser =  userDAO.getUserByID(userId);
-        _log.debug("in userService "+foundUser);
+        User foundUser = userDAO.getUserByID(userId);
+        _log.debug("in userService " + foundUser);
         return (foundUser);
     }
 }

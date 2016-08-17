@@ -1,25 +1,23 @@
 package com.core;
 
-import org.apache.commons.mail.*;
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
 
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.io.IOException;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * Created by Jigar on 7/30/2016.
  */
 public class EmailHandler {
     private static EmailHandler ourInstance = new EmailHandler();
-
-    public static EmailHandler getInstance() {
-        return ourInstance;
-    }
-
+    int _smtpport;
+    String _username;
+    String _password;
+    String _from;
+    String _time;
+    String _path;
+    private String _hostname;
     private EmailHandler() {
         //load one time setting username/password/emailid/mail setting
         PropertyProvider pr = PropertyProvider.getInstance();
@@ -40,7 +38,11 @@ public class EmailHandler {
 
     }
 
-    public int sendMail (String to, String msg){
+    public static EmailHandler getInstance() {
+        return ourInstance;
+    }
+
+    public int sendMail(String to, String msg) {
         try {
             HtmlEmail email = new HtmlEmail();
             email.setHostName(_hostname);
@@ -61,12 +63,4 @@ public class EmailHandler {
 
         return 0;
     }
-
-    private String _hostname;
-    int _smtpport;
-    String _username;
-    String _password;
-    String _from;
-    String _time;
-    String _path;
 }

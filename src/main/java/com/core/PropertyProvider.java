@@ -13,13 +13,7 @@ import java.util.Timer;
 public class PropertyProvider {
 
     private static PropertyProvider ourInstance = new PropertyProvider();
-
-    public static PropertyProvider getInstance() {
-        return ourInstance;
-    }
-
-    private HashMap<String,String> configurationMap = new HashMap<>();
-
+    private HashMap<String, String> configurationMap = new HashMap<>();
 
     private PropertyProvider() {
         InputStream inputStream = null;
@@ -39,12 +33,12 @@ public class PropertyProvider {
             //Date time = new Date(System.currentTimeMillis());
 
             // get the property value and print it out
-            configurationMap.put("mailhostname",prop.getProperty("hostname"));
-            configurationMap.put("smtpport",prop.getProperty("smtpport"));
-            configurationMap.put("username",prop.getProperty("username"));
-            configurationMap.put("password",prop.getProperty("password"));
-            configurationMap.put("subject",prop.getProperty("subject"));
-            configurationMap.put("time",prop.getProperty("time"));
+            configurationMap.put("mailhostname", prop.getProperty("hostname"));
+            configurationMap.put("smtpport", prop.getProperty("smtpport"));
+            configurationMap.put("username", prop.getProperty("username"));
+            configurationMap.put("password", prop.getProperty("password"));
+            configurationMap.put("subject", prop.getProperty("subject"));
+            configurationMap.put("time", prop.getProperty("time"));
             //Email Scheduler
             String timeInHour = prop.getProperty("time");
 
@@ -61,10 +55,16 @@ public class PropertyProvider {
             }
         }
     }
-    public HashMap<String,String> getPropertyMap(){
+
+    public static PropertyProvider getInstance() {
+        return ourInstance;
+    }
+
+    public HashMap<String, String> getPropertyMap() {
         return configurationMap;
     }
-    public void addToMap(String key, String value){
-        configurationMap.put(key,value);
+
+    public void addToMap(String key, String value) {
+        configurationMap.put(key, value);
     }
 }

@@ -10,12 +10,12 @@ import java.util.List;
  */
 public class AttachmentService extends SGALogger {
 
-    public AttachmentService()
-    {
+    public AttachmentService() {
         System.out.println("Attachement Service test class called");
     }
-    public void attachBike(Attachment newAttachment){
-        _log.info("hit attachment api "+newAttachment);
+
+    public void attachBike(Attachment newAttachment) {
+        _log.info("hit attachment api " + newAttachment);
 
         AttachmentDAO attachmentDAO = new AttachmentDAO();
         attachmentDAO.attachBike(newAttachment);

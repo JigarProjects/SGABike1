@@ -3,10 +3,8 @@ package com.ws;
 import com.core.Attachment;
 import com.core.AttachmentService;
 
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +20,7 @@ public class AttachmentResource {
     public Attachment attachBike(Attachment newAttachment) {
         System.out.println("hit there ");
         attachmentService.attachBike(newAttachment);
-        return  (new Attachment(0,0));
+        return (new Attachment(0, 0));
     }
 
     @GET
@@ -35,7 +33,7 @@ public class AttachmentResource {
     @Path("/{attachmentID}")
     @Consumes(MediaType.APPLICATION_JSON)
     public void deleteAttachment(@PathParam("attachmentID") int deletedId) {
-        System.out.println("detechment intiation"+deletedId);
+        System.out.println("detechment intiation" + deletedId);
         attachmentService.deleteAttachment(deletedId);
     }
 
@@ -45,7 +43,7 @@ public class AttachmentResource {
     public Attachment updateAttachment(Attachment updatedAttachment) {
 
         //return bs.updateBike(updatedBike);
-        return  new Attachment(0,0);
+        return new Attachment(0, 0);
     }
 
 }

@@ -1,19 +1,11 @@
 package com.core;
 
-import org.apache.commons.mail.DefaultAuthenticator;
-import org.apache.commons.mail.Email;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.SimpleEmail;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Map;
 import java.util.Timer;
 
 
@@ -41,13 +33,12 @@ public class configsetup extends HttpServlet {
 
         ServletConfig conf = getServletConfig();
         String path = conf.getServletContext().getRealPath("/");
-        pr.addToMap("path",path);
+        pr.addToMap("path", path);
 
-        System.out.println("intializing schedulers "+cal.getTime());
+        System.out.println("intializing schedulers " + cal.getTime());
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new EmailTask(), cal.getTime(), 60*1000 );
+        timer.scheduleAtFixedRate(new EmailTask(), cal.getTime(), 24 * 60 * 60 * 1000);
         // hour, min, second, millisecon
-
 
 
     }

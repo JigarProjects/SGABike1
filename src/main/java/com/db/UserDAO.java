@@ -151,11 +151,11 @@ public class UserDAO extends DAOBase {
             }
 
         }
-        _log.debug("found user "+foundUser);
+        _log.debug("found user " + foundUser);
         return foundUser;
     }
 
-    public ArrayList<User> notifyUsers(){
+    public ArrayList<User> notifyUsers() {
         ArrayList<User> userList = new ArrayList<>();
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -168,7 +168,7 @@ public class UserDAO extends DAOBase {
             pstmt = conn.prepareStatement(SQL);
             userResult = pstmt.executeQuery();
             while (userResult.next()) {
-                userList.add( new User(userResult.getInt("ID"), userResult.getInt("USERID"), userResult.getString("NAME"), userResult.getString("EMAIL")) );
+                userList.add(new User(userResult.getInt("ID"), userResult.getInt("USERID"), userResult.getString("NAME"), userResult.getString("EMAIL")));
             }
         } catch (Exception e) {
             _log.error("Error: unable to SQL execute!");
@@ -181,6 +181,6 @@ public class UserDAO extends DAOBase {
                 _log.error(e);
             }
         }
-        return  userList;
+        return userList;
     }
 }

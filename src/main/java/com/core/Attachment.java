@@ -10,20 +10,21 @@ public class Attachment {
     int userID;
     int bikeID;
 
+    public Attachment() {
+        super();
+    }
+
+    public Attachment(int userID, int bikeID) {
+        this.userID = userID;
+        this.bikeID = bikeID;
+    }
+
     @Override
     public String toString() {
         return "Attachment{" +
                 "userID=" + userID +
                 ", bikeID=" + bikeID +
                 '}';
-    }
-
-    public Attachment(){
-        super();
-    }
-    public Attachment(int userID, int bikeID) {
-        this.userID = userID;
-        this.bikeID = bikeID;
     }
 
     public int getUserID() {
