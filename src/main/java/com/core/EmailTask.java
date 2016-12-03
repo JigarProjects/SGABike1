@@ -44,7 +44,7 @@ public class EmailTask extends TimerTask {
             //sent to specific user
             EmailHandler emailHandler = EmailHandler.getInstance();
             emailHandler.sendMail(tempUser.getEmailID(), writer.toString());
-            System.out.println("Job executed in while");
+            System.out.println("Email sent to "+tempUser.getEmailID());
         }
         System.out.println("Job executed");
 

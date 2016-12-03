@@ -5,6 +5,7 @@ import com.core.BikeService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 
@@ -18,8 +19,9 @@ public class BikeResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Bike> getBikes() {
-        return bs.getBikes();
+    public Response getBikes() {
+        List<Bike> bikes = bs.getBikes();
+        return Response.ok().entity(bikes).build();
     }
 
 

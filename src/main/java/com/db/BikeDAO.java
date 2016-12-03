@@ -1,5 +1,6 @@
 package com.db;
 
+import com.SGAError;
 import com.core.Bike;
 
 import java.sql.Connection;
@@ -40,7 +41,7 @@ public class BikeDAO extends DAOBase {
         }
     }
 
-    public List<Bike> listBike() {
+    public List<Bike> listBike() throws SGAError {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet bikeResult = null;
@@ -56,6 +57,7 @@ public class BikeDAO extends DAOBase {
         } catch (Exception e) {
             _log.error("Error: unable to SQL execute!");
             _log.error(e);
+            throw new SGAError(e.getMessage());
         } finally {
             try {
                 pstmt.close();

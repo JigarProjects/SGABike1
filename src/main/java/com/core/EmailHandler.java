@@ -54,7 +54,7 @@ public class EmailHandler {
             //email content
             email.addTo(to);
             email.setSubject("SGA Notification");
-            email.setHtmlMsg(msg);
+            email.setMsg(msg);
 
             email.send();
         } catch (EmailException e) {

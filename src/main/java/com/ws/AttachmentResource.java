@@ -18,7 +18,7 @@ public class AttachmentResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Attachment attachBike(Attachment newAttachment) {
-        System.out.println("hit there ");
+        //System.out.println("hit there ");
         attachmentService.attachBike(newAttachment);
         return (new Attachment(0, 0));
     }
